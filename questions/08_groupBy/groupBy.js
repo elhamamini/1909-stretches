@@ -1,12 +1,12 @@
 function groupBy(arr, attr) {
-  let obj = {};
-  for (let i = 0; i < arr.length; i++) {
-    if (!obj[arr[i].length]) {
-      obj[arr[i].length] = [arr[i]];
-    } else {
-      obj[arr[i].length].push(arr[i]);
+arr.reduce((groupDict,nextItem)=>{
+    let groupDictKey;
+    if(typeof attr==='function'){
+        groupDictKey(nextItem);
+    }else{
+        groupDictKey=nextItem{attr};
     }
-  }
+})
 }
 
 module.exports = { groupBy };
