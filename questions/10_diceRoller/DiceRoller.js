@@ -5,6 +5,14 @@
 class DiceRoller {
   //YOUR CODE
   constructor(sides, numDice) {
+    if (!sides || !numDice) {
+      throw new Error("Error,missing a parameter");
+    }
+    if (typeof sides !== "number" || typeof numDice !== "number") {
+      throw new Error("");
+    }
+    if (sides < 1 || numdice) {
+    }
     this.sides = sides;
     this.numDice = numDice;
     this.history = [];
@@ -12,11 +20,12 @@ class DiceRoller {
   roll() {
     let arr = {};
     for (let i = 0; i < this.numDice; i++) {
-      let roll = Math.random() * this.numDice;
+      let roll = Math.floor(Math.random() * this.numDice + 1);
       if (roll % 1 === 0 && roll > 0) {
         arr.push(roll);
       }
     }
+    this.history.push(arr);
     return arr;
   }
 }
