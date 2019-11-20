@@ -1,10 +1,16 @@
-function cache(func) {
-  if (typeof func !== "function") {
-    throw "Input must be a function.";
+function cache(cb) {
+  if (typeof cb !== "function") {
+    throw new Error("Input must be a function.");
   }
+  const obj = {};
+  return function(...num) {
+    if (num in obj) {
+      return obj[num];
+    } else {
+      obj[num] = cb(...num);
 
-  return function(num) {
-    return func(num);
+      return cb(num);
+    }
   };
 }
 
