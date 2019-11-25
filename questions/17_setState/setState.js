@@ -8,12 +8,13 @@ class StatefulThing {
     this.newState = [];
   }
   setState(arg) {
-    const mystate = { ...this.state, ...arg };
+    this.newState.push(this.state);
+    this.state = { ...this.state, ...arg };
 
-    return mystate;
+    return this.state;
   }
   goBack() {
-    this.newState.push(this.state);
+    this.state = this.newState.pop();
   }
 }
 
