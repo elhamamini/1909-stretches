@@ -19,12 +19,12 @@
 // no export statement required
 let count = 0;
 
-Array.prototype.next = function(arr) {
-  if (count < arr.length) {
-    console.log(arr[count]);
+Array.prototype.next = function() {
+  if (count < this.length) {
+    console.log(this[count]);
     count++;
-  } else if (count === arr.length) {
-    console.log(arr[count]);
+  } else if (count === this.length) {
+    console.log(this[count]);
     count--;
   }
 };
